@@ -17,5 +17,9 @@ public class TabLayout extends LinearLayout {
 	public TabLayout(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
+	
+	private void init() {
+		
+	}
 
 }
