@@ -2,6 +2,7 @@ package com.brook.weather.utils;
 
 public class StringUtil {
 
+	//获取请求body
 	public static String getRequestBody(String method,String...names){
 		String name = "";
 		for(int i=1;i<=names.length;i++){
