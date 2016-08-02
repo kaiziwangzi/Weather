@@ -10,6 +10,7 @@ import okhttp3.Response;
 
 import com.brook.weather.converters.GsonConverterFactory;
 import com.brook.weather.rxadapter.RxJavaCallAdapterFactory;
+import com.brook.weather.simplexml.SimpleXmlConverterFactory;
 import com.brook.weather.utils.L;
 
 import retrofit2.CallAdapter;
@@ -18,14 +19,19 @@ import retrofit2.Retrofit;
 
 public class WeatherRequest {
 
-	public static WeatherCallApi build() {
+	public static WeatherCallApi buildGson() {
 		return build(WeatherCallApi.class, GsonConverterFactory.create(),
+				RxJavaCallAdapterFactory.create());
+	}
+
+	public static WeatherCallApi buildXml() {
+		return build(WeatherCallApi.class, SimpleXmlConverterFactory.create(),
 				RxJavaCallAdapterFactory.create());
 	}
 
 	public static <T> T build(Class<T> api, Converter.Factory converter,
 			CallAdapter.Factory callAdapter) {
-		String baseUrl = "";
+		String baseUrl = "http://218.28.7.245:8085/";
 		Retrofit.Builder retrofit = new Retrofit.Builder();
 		retrofit.baseUrl(baseUrl);
 		if (null != converter) {
@@ -40,8 +46,7 @@ public class WeatherRequest {
 			@Override
 			public Response intercept(Chain chain) throws IOException {
 				Request request = chain.request().newBuilder()
-						.addHeader("x-from", "brook")
-						.addHeader("User-Agent", "brook").build();
+						.addHeader("Content-Type", "text/xml").build();
 				return chain.proceed(request);
 			}
 		});
