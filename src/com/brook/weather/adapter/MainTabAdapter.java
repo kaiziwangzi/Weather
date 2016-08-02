@@ -69,6 +69,9 @@ public class MainTabAdapter extends BaseAdapter {
 			holder.nameTv = (TextView)convertView.findViewById(R.id.mTabTextView);
 			holder.tabIv = (ImageView)convertView.findViewById(R.id.mTabIamge);
 			holder.tabLl = convertView.findViewById(R.id.ll_tab);
+			LayoutParams lp = holder.tabLl.getLayoutParams();
+			lp.height = DeviceInfo.getScreentWidth(context)/3;
+			holder.tabLl.setLayoutParams(lp);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
