@@ -3,6 +3,11 @@ package com.brook.weather.api;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.convert.AnnotationStrategy;
+import org.simpleframework.xml.core.Persister;
+import org.simpleframework.xml.strategy.Strategy;
+
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -25,7 +30,11 @@ public class WeatherRequest {
 	}
 
 	public static WeatherCallApi buildXml() {
-		return build(WeatherCallApi.class, SimpleXmlConverterFactory.create(),
+
+		Strategy strategy = new AnnotationStrategy();
+		Serializer serializer = new Persister(strategy);
+		return build(WeatherCallApi.class,
+				SimpleXmlConverterFactory.create(serializer),
 				RxJavaCallAdapterFactory.create());
 	}
 

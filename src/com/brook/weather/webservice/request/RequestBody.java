@@ -1,8 +1,6 @@
-package com.brook.weather.entity;
+package com.brook.weather.webservice.request;
 
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.Root;
 
 public class RequestBody {
 
