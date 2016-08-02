@@ -8,9 +8,8 @@ import rx.Observable;
 
 public interface WeatherCallApi {
 
-	@POST("FileZL/sayHi/")
-	@Headers({ "Content-Type:text/xml;charset=utf-8",
-			"SOAPAction:select_data_type_c_tqyj" })
+	@POST("FileZL/sayHi")
+	@Headers({ "Content-Type:text/xml"})
 	Observable<Response<String>> sayHi(@Body String body);
 
 }

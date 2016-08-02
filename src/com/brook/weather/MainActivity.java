@@ -21,8 +21,8 @@ public class MainActivity extends Activity {
 
 		WeatherRequest
 				.buildXml()
-				.sayHi(StringUtil.getRequestBody("select_data_type_c_tqyj",
-						"10", "0")).subscribeOn(Schedulers.io())
+				.sayHi(StringUtil.getRequestBody("select_data_type_c_pamter_time_tqyb",
+						"rain_tqyb_short_048", "20160801")).subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribe(new Action1<Response<String>>() {
 

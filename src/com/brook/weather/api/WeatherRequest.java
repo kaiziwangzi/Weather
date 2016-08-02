@@ -33,7 +33,8 @@ public class WeatherRequest {
 			CallAdapter.Factory callAdapter) {
 		String baseUrl = "http://218.28.7.245:8085/";
 		Retrofit.Builder retrofit = new Retrofit.Builder();
-		retrofit.baseUrl(baseUrl);
+		retrofit.baseUrl(baseUrl)
+		.addConverterFactory(GsonConverterFactory.create());
 		if (null != converter) {
 			retrofit.addConverterFactory(converter);
 		}
