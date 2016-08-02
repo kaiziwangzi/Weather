@@ -7,10 +7,14 @@ import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 import com.brook.weather.api.WeatherRequest;
+import com.brook.weather.entity.Request;
+import com.brook.weather.entity.RequestBody;
+import com.brook.weather.entity.RequestEnvelope;
 import com.brook.weather.utils.StringUtil;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -19,16 +23,20 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		RequestEnvelope t = new RequestEnvelope();
+		RequestBody b = new RequestBody();
+		b.setTqyj(new Request("10", "0"));
+		t.setBody(b);
+		
+		
 		WeatherRequest
-				.buildXml()
-				.sayHi(StringUtil.getRequestBody("select_data_type_c_pamter_time_tqyb",
-						"rain_tqyb_short_048", "20160801")).subscribeOn(Schedulers.io())
+				.buildXml().sayHi(t).subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribe(new Action1<Response<String>>() {
 
 					@Override
 					public void call(Response<String> arg0) {
-
+						
 					}
 				},new Action1<Throwable>() {
 					
