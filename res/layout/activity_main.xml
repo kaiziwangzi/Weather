@@ -24,14 +24,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-            android:layout_weight="1">
             <com.brook.weather.widgets.AutoHeightGridView
                 android:id="@+id/gv_main_tab"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:listSelector="@android:color/transparent"
-
+                android:listSelector="@android:color/transparent" />
         </RelativeLayout>
     </LinearLayout>
 

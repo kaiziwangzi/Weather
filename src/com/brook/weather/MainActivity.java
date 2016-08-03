@@ -16,7 +16,6 @@ import com.brook.weather.webservice.request.RequestBody;
 import com.brook.weather.webservice.request.RequestEnvelope;
 import com.brook.weather.webservice.response.ResponseEnvelope;
 import com.brook.weather.webservice.response.Return;
-import com.brook.weather.webservice.response.ReturnBody;
 
 import android.app.Activity;
 import android.os.Bundle;
