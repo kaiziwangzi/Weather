@@ -4,5 +4,11 @@
     <string name="app_name">河南天气</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="tabmoel_tqyb">天气预报</string>
+    <string name="tabmoel_dlyb">短临预报</string>
+    <string name="tabmoel_dqyb">短期预报</string>
+    <string name="tabmoel_tqyj">天气预警</string>
+    <string name="tabmoel_zhgc">综合观测</string>
+    <string name="tabmoel_jcfw">决策服务</string>
 
 </resources>

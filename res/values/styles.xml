@@ -20,4 +20,8 @@
     <style name="AppThemes" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="AppCompatTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
 </resources>

@@ -26,11 +26,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1" >
 
-            <com.brook.weather.widgets.AutoHeightGridView
-                android:id="@+id/gv_main_tab"
+            <com.brook.weather.widgets.recyclerview.WeatherRecyclerView
+                android:id="@id/recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:listSelector="@android:color/transparent" />
+                android:layout_height="match_parent" />
         </RelativeLayout>
     </LinearLayout>
 
