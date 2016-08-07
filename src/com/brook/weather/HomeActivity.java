@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends BaseListActivity<TabModel> {
+public class HomeActivity extends BaseListActivity<TabModel> {
 
 	@Override
 	protected void setUpContentView() {
