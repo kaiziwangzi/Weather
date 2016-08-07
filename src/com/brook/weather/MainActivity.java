@@ -105,8 +105,8 @@ public class MainActivity extends BaseListActivity<TabModel> {
 	}
 
 	class ViewHolder extends BaseViewHolder<TabModel> {
-		private final ImageView mPurseIcon;
-		private final TextView mPurseItemLabel;
+		private ImageView mPurseIcon;
+		private TextView mPurseItemLabel;
 
 		public ViewHolder(View itemView) {
 			super(itemView);
