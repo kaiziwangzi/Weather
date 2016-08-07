@@ -8,6 +8,7 @@ public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder
 
 	public BaseViewHolder(View view) {
 		super(view);
+		view.setOnClickListener(this);
 	}
 
 	public abstract void onBind(T t);

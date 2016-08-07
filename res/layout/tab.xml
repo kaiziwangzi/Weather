@@ -3,7 +3,7 @@
     android:id="@+id/ll_tab"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="2dp"
     android:background="#ffffff"
     android:gravity="center"
     android:orientation="vertical"
@@ -20,8 +20,10 @@
         android:id="@+id/mTabTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/color_717190"
         android:layout_marginTop="10dp"
         android:text="天气预报"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
 </LinearLayout>

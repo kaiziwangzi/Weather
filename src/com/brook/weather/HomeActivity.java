@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import com.brook.weather.entity.TabModel;
 import com.brook.weather.widgets.recyclerview.BaseViewHolder;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
@@ -18,44 +18,45 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 
 	@Override
 	protected void setUpContentView() {
-		setContentView(R.layout.activity_main,0);
+		setContentView(R.layout.activity_main, 0);
 	}
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_main);
 
-		// findViewById(R.id.layout).setOnClickListener(new OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		//
-		// RequestEnvelope t = new RequestEnvelope();
-		// RequestBody b = new RequestBody();
-		// b.setTqyj(new Request("10", "0"));
-		// t.setBody(b);
-		//
-		// WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
-		// .observeOn(AndroidSchedulers.mainThread())
-		// .subscribe(new Action1<Response<ResponseEnvelope>>() {
-		//
-		// @Override
-		// public void call(Response<ResponseEnvelope> reponse) {
-		// ArrayList<Return> list = reponse.body().responseBody.model;
-		// Log.e(TAG, list.toString());
-		// }
-		// }, new Action1<Throwable>() {
-		//
-		// @Override
-		// public void call(Throwable throwable) {
-		//
-		// Log.e(TAG, throwable.getMessage().toString());
-		// }
-		// });
-		// }
-		// });
+	// @Override
+	// protected void onCreate(Bundle savedInstanceState) {
+	// super.onCreate(savedInstanceState);
+	// setContentView(R.layout.activity_main);
 
-	//	}
+	// findViewById(R.id.layout).setOnClickListener(new OnClickListener() {
+	//
+	// @Override
+	// public void onClick(View v) {
+	//
+	// RequestEnvelope t = new RequestEnvelope();
+	// RequestBody b = new RequestBody();
+	// b.setTqyj(new Request("10", "0"));
+	// t.setBody(b);
+	//
+	// WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
+	// .observeOn(AndroidSchedulers.mainThread())
+	// .subscribe(new Action1<Response<ResponseEnvelope>>() {
+	//
+	// @Override
+	// public void call(Response<ResponseEnvelope> reponse) {
+	// ArrayList<Return> list = reponse.body().responseBody.model;
+	// Log.e(TAG, list.toString());
+	// }
+	// }, new Action1<Throwable>() {
+	//
+	// @Override
+	// public void call(Throwable throwable) {
+	//
+	// Log.e(TAG, throwable.getMessage().toString());
+	// }
+	// });
+	// }
+	// });
+
+	// }
 
 	@Override
 	protected void setUpView() {
@@ -66,14 +67,14 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 	protected void setUpData() {
 		super.setUpData();
 		mDataList = new ArrayList<>();
-		mDataList
-				.add(new TabModel(R.drawable.tqyb, R.string.tabmoel_tqyb, null));
+		mDataList.add(new TabModel(R.drawable.tqyb, R.string.tabmoel_tqyb,
+				WeatherForecastActivity.class));
 		mDataList
 				.add(new TabModel(R.drawable.dlyb, R.string.tabmoel_dlyb, null));
 		mDataList
 				.add(new TabModel(R.drawable.dqyb, R.string.tabmoel_dqyb, null));
-		mDataList
-				.add(new TabModel(R.drawable.tqyj, R.string.tabmoel_tqyj, null));
+		mDataList.add(new TabModel(R.drawable.tqyj, R.string.tabmoel_tqyj,
+				WeatherWarningActivity.class));
 		mDataList
 				.add(new TabModel(R.drawable.zhgc, R.string.tabmoel_zhgc, null));
 		mDataList
@@ -110,7 +111,8 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 
 		public ViewHolder(View itemView) {
 			super(itemView);
-			mPurseItemLabel = (TextView) itemView.findViewById(R.id.mTabTextView);
+			mPurseItemLabel = (TextView) itemView
+					.findViewById(R.id.mTabTextView);
 			mPurseIcon = (ImageView) itemView.findViewById(R.id.mTabIamge);
 		}
 
@@ -122,10 +124,10 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 
 		@Override
 		public void onItemClick(View view, int position) {
-			// Wallet wallets = mDataList.get(position);
-			// Intent intent = new Intent(PurseActivity.this,
-			// wallets.activityClass);
-			// startActivityForResult(intent,REQUEST_CODE_CHOOSE_PURSE);
+			TabModel tabModel = mDataList.get(position);
+			Intent intent = new Intent(HomeActivity.this,
+					tabModel.activityClass);
+			startActivity(intent);
 		}
 	}
 }
