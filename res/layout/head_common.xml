@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="44dp" >
+    android:layout_height="50dp"
+    android:background="@color/color_252635"
+    android:orientation="horizontal" >
 
+    <FrameLayout
+        android:id="@+id/mBackLay"
+        android:layout_width="50dp"
+        android:layout_height="50dp" >
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/mBackView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_title_back" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/mTitle"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/color_white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp" >
+    </FrameLayout>
+
+</LinearLayout>

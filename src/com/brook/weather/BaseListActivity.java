@@ -2,6 +2,7 @@ package com.brook.weather;
 
 import java.util.ArrayList;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -12,20 +13,38 @@ import com.brook.weather.widgets.recyclerview.WeatherRecyclerView;
 import com.brook.weather.widgets.recyclerview.WeatherRecyclerView.OnRefreshListener;
 
 public abstract class BaseListActivity<T> extends BaseActivity implements
-		OnRefreshListener {
+		OnRefreshListener,
+		android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener {
 	protected ArrayList<T> mDataList = new ArrayList<>();
 	protected WeatherRecyclerView recyclerView;
 	protected RecyclerView.Adapter adapter;
 	protected RecyclerView.LayoutManager layoutManager;
+	protected SwipeRefreshLayout mSwipeRefreshLayout;
+	protected static final int MODE_REFRESH = 100;
+	private int mode;
 
 	@Override
 	protected void setUpContentView() {
-		setContentView(R.layout.base_list_layout,0);
+		setContentView(R.layout.base_list_layout, 0);
+	}
+
+	public void setContentView(int layoutResID, int titleResId, int mode,
+			int refresh) {
+		this.mode = refresh;
+		setContentView(layoutResID, titleResId, mode);
+	}
+
+	@Override
+	public void setContentView(int layoutResID, int titleResId, int mode) {
+		super.setContentView(layoutResID, titleResId, mode);
 	}
 
 	@Override
 	protected void setUpView() {
 		recyclerView = (WeatherRecyclerView) findViewById(R.id.recyclerview);
+		if (mode == MODE_REFRESH) {
+			mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.pulltorefreshlayout);
+		}
 	}
 
 	@Override
@@ -38,7 +57,16 @@ public abstract class BaseListActivity<T> extends BaseActivity implements
 			recyclerView.addItemDecoration(decoration);
 		}
 		recyclerView.setAdapter(adapter);
-		recyclerView.setOnRefreshListener(this);
+		if (mode == MODE_REFRESH) {
+			mSwipeRefreshLayout.setOnRefreshListener(this);
+			mSwipeRefreshLayout.post(new Runnable() {
+				@Override
+				public void run() {
+					mSwipeRefreshLayout.setRefreshing(true);
+					onRefresh();
+				}
+			});
+		}
 	}
 
 	protected void setUpAdapter() {
@@ -66,6 +94,11 @@ public abstract class BaseListActivity<T> extends BaseActivity implements
 	@Override
 	public boolean needLoadMore() {
 		return false;
+	}
+
+	@Override
+	public void onRefresh() {
+
 	}
 
 	public class BaseListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
