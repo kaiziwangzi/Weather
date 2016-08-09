@@ -74,7 +74,7 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 		mDataList
 				.add(new TabModel(R.drawable.dqyb, R.string.tabmoel_dqyb, null));
 		mDataList.add(new TabModel(R.drawable.tqyj, R.string.tabmoel_tqyj,
-				WeatherWarningActivity.class));
+				WeatherWarnningActivity.class));
 		mDataList
 				.add(new TabModel(R.drawable.zhgc, R.string.tabmoel_zhgc, null));
 		mDataList

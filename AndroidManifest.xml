@@ -30,7 +30,10 @@
             android:name=".WeatherForecastActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WeatherWarningActivity"
+            android:name=".WeatherWarnningActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WeatherWarnningDetailActivity"
             android:screenOrientation="portrait" />
     </application>
 

@@ -88,9 +88,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 	@Override
 	public void finish() {
 		super.finish();
-		if (!isStartActivity) {
-			overridePendingTransition(R.anim.push_left_in,
-					R.anim.push_right_out);
-		}
+		// if (!isStartActivity) {
+		overridePendingTransition(R.anim.push_left_in, R.anim.push_right_out);
+		// }
 	}
 }

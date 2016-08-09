@@ -12,12 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.brook.weather.HomeActivity.ViewHolder;
 import com.brook.weather.api.WeatherRequest;
-import com.brook.weather.entity.TabModel;
+import com.brook.weather.constants.Constants;
 import com.brook.weather.utils.DateUtil;
 import com.brook.weather.webservice.request.Request;
 import com.brook.weather.webservice.request.RequestBody;
@@ -25,14 +23,13 @@ import com.brook.weather.webservice.request.RequestEnvelope;
 import com.brook.weather.webservice.response.ResponseEnvelope;
 import com.brook.weather.webservice.response.Return;
 import com.brook.weather.widgets.recyclerview.BaseViewHolder;
-import com.brook.weather.widgets.recyclerview.DividerItemDecoration;
 import com.brook.weather.widgets.recyclerview.WeatherRecyclerView;
 
-public class WeatherWarningActivity extends BaseListActivity<Return> {
+public class WeatherWarnningActivity extends BaseListActivity<Return> {
 
 	@Override
 	protected void setUpContentView() {
-		setContentView(R.layout.activity_weather_warning,
+		setContentView(R.layout.activity_weather_warnning,
 				R.string.tabmoel_tqyj, MODE_BACK, MODE_REFRESH);
 	}
 
@@ -77,8 +74,7 @@ public class WeatherWarningActivity extends BaseListActivity<Return> {
 	}
 
 	protected RecyclerView.ItemDecoration getItemDecoration() {
-		return new DividerItemDecoration(getApplicationContext(),
-				R.drawable.item_warnning_divider);
+		return null;
 	}
 
 	@Override
@@ -118,6 +114,13 @@ public class WeatherWarningActivity extends BaseListActivity<Return> {
 
 		@Override
 		public void onItemClick(View view, int position) {
+			Return mrReturn = mDataList.get(position);
+			if (null != mrReturn) {
+				Intent intent = new Intent(WeatherWarnningActivity.this,
+						WeatherWarnningDetailActivity.class);
+				intent.putExtra(Constants.ACTION_WARNNING_DETAIL, mrReturn);
+				startActivity(intent);
+			}
 		}
 	}
 

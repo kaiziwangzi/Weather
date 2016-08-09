@@ -35,4 +35,36 @@ public class DateUtil {
 			return "";
 		}
 	}
+
+	public static String formatDate(String date) {
+		if (null == date) {
+			return "";
+		}
+		SimpleDateFormat formatter1 = null;
+		SimpleDateFormat formatter = null;
+		try {
+			formatter1 = new SimpleDateFormat("yyyyMMddHHmmss");
+			formatter = new SimpleDateFormat("MM月dd日");
+			return formatter.format(formatter1.parse(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+	
+	public static String formatTime(String date) {
+		if (null == date) {
+			return "";
+		}
+		SimpleDateFormat formatter1 = null;
+		SimpleDateFormat formatter = null;
+		try {
+			formatter1 = new SimpleDateFormat("yyyyMMddHHmmss");
+			formatter = new SimpleDateFormat("HH:mm");
+			return formatter.format(formatter1.parse(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
 }

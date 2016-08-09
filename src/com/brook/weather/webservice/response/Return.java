@@ -1,9 +1,11 @@
 package com.brook.weather.webservice.response;
 
+import java.io.Serializable;
+
 import org.simpleframework.xml.Element;
 
 @Element(name = "return")
-public class Return {
+public class Return implements Serializable{
 	@Element(name = "description1", required = false)
 	public String description1;
 
