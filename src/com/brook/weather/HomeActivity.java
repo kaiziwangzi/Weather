@@ -31,30 +31,30 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 	// @Override
 	// public void onClick(View v) {
 	//
-//	 RequestEnvelope t = new RequestEnvelope();
-//	 RequestBody b = new RequestBody();
-//	 b.setTqyj(new Request("10", "0"));
-//	 t.setBody(b);
-//	
-//	 WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
-//	 .observeOn(AndroidSchedulers.mainThread())
-//	 .subscribe(new Action1<Response<ResponseEnvelope>>() {
-//	
-//	 @Override
-//	 public void call(Response<ResponseEnvelope> reponse) {
-//	 ArrayList<Return> list = reponse.body().responseBody.model;
-//	 Log.e(TAG, list.toString());
-//	 }
-//	 }, new Action1<Throwable>() {
-//	
-//	 @Override
-//	 public void call(Throwable throwable) {
-//	
-//	 Log.e(TAG, throwable.getMessage().toString());
-//	 }
-//	 });
-//	 }
-//	 });
+	// RequestEnvelope t = new RequestEnvelope();
+	// RequestBody b = new RequestBody();
+	// b.setTqyj(new Request("10", "0"));
+	// t.setBody(b);
+	//
+	// WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
+	// .observeOn(AndroidSchedulers.mainThread())
+	// .subscribe(new Action1<Response<ResponseEnvelope>>() {
+	//
+	// @Override
+	// public void call(Response<ResponseEnvelope> reponse) {
+	// ArrayList<Return> list = reponse.body().responseBody.model;
+	// Log.e(TAG, list.toString());
+	// }
+	// }, new Action1<Throwable>() {
+	//
+	// @Override
+	// public void call(Throwable throwable) {
+	//
+	// Log.e(TAG, throwable.getMessage().toString());
+	// }
+	// });
+	// }
+	// });
 
 	// }
 
@@ -77,8 +77,8 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 				WeatherWarnningActivity.class));
 		mDataList
 				.add(new TabModel(R.drawable.zhgc, R.string.tabmoel_zhgc, null));
-		mDataList
-				.add(new TabModel(R.drawable.jcfw, R.string.tabmoel_jcfw, null));
+		mDataList.add(new TabModel(R.drawable.jcfw, R.string.tabmoel_jcfw,
+				DecisionServiceActivity.class));
 		adapter.notifyDataSetChanged();
 	}
 

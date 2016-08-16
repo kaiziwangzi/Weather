@@ -13,5 +13,8 @@
     <string name="home_search_hint">请输入城市</string>
     <string name="warnning_detail_date">发布时间：%1$s</string>
     <string name="designed_by_henan">来自河南气象局</string>
+    <string name="decisionservice_zsbg">专属报告</string>
+    <string name="decisionservice_zybg">重要报告</string>
+    <string name="decisionservice_zyxx">重要信息</string>
 
 </resources>

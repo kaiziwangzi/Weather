@@ -35,6 +35,9 @@
         <activity
             android:name=".WeatherWarnningDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".DecisionServiceActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
