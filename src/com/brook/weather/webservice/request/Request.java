@@ -6,10 +6,21 @@ import org.simpleframework.xml.Namespace;
 @Namespace(reference = "http://find/", prefix = "n0")
 public class Request {
 
-	@Element
+	@Element(required = false)
 	private String name1;
-	@Element
+	@Element(required = false)
 	private String name2;
+	@Element(required = false)
+	private String name;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getName1() {
 		return name1;
 	}
@@ -27,5 +38,8 @@ public class Request {
 		this.name1 = name1;
 		this.name2 = name2;
 	}
-	
+	public Request(String name) {
+		super();
+		this.name = name;
+	}
 }

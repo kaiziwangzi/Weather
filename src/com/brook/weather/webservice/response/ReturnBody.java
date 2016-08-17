@@ -11,4 +11,7 @@ import org.simpleframework.xml.Root;
 public class ReturnBody {
 	@ElementList(name = "select_data_type_c_tqyjResponse", required = false)
 	public ArrayList<Return> model;
+	
+	@ElementList(name = "select_data_type_c_pamterResponse", required = false)
+	public ArrayList<Return> model1;
 }

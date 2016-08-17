@@ -29,5 +29,14 @@ public class Return implements Serializable{
 
 	@Element(name = "type1", required = false)
 	public String type1;
+	
+	@Element(name = "filename", required = false)
+	public String filename;
+	
+	@Element(name = "inserttime", required = false)
+	public String inserttime;
+	
+	@Element(name = "path", required = false)
+	public String path;
 
 }

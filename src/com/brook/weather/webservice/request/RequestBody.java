@@ -9,6 +9,9 @@ public class RequestBody {
 	
 	@Element(name="select_data_type_c_pamter_time_tqyb", required = false)
 	private Request tqybc = null;
+	
+	@Element(name="select_data_type_c_pamter", required = false)
+	private Request jcfw = null;
 
 	public Request getTqyj() {
 		return tqyj;
@@ -24,6 +27,14 @@ public class RequestBody {
 
 	public void setTqybc(Request tqybc) {
 		this.tqybc = tqybc;
+	}
+
+	public Request getJcfw() {
+		return jcfw;
+	}
+
+	public void setJcfw(Request jcfw) {
+		this.jcfw = jcfw;
 	}
 	
 }
