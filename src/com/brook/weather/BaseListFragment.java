@@ -27,7 +27,7 @@ public abstract class BaseListFragment<T> extends BaseFragment implements
 	protected RecyclerView.LayoutManager layoutManager;
 	protected SwipeRefreshLayout mSwipeRefreshLayout;
 	protected static final int MODE_REFRESH = 100;
-	private int mode;
+	protected int mode;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

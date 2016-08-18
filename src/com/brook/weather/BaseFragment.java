@@ -96,7 +96,6 @@ public abstract class BaseFragment extends Fragment {
     private void checkIfLoadData() {
         if (isVisibleToUser && isViewInitialized && !isDataInitialized) {
             isDataInitialized = true;
-//            TODO load data
             setUpData();
         }
     }
