@@ -16,5 +16,11 @@
     <string name="decisionservice_zsbg">专属报告</string>
     <string name="decisionservice_zybg">重要报告</string>
     <string name="decisionservice_zyxx">重要信息</string>
+    <string name="observation_yl">雨量</string>
+    <string name="observation_ldpt">雷达拼图</string>
+    <string name="observation_wxyt">卫星云图</string>
+    <string name="observation_trsf">土壤水分</string>
+    <string name="observation_zgqw">最高气温</string>
+    <string name="observation_zdqw">最低气温</string>
 
 </resources>

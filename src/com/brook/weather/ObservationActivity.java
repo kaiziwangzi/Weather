@@ -1,8 +1,6 @@
 package com.brook.weather;
 
 import java.util.ArrayList;
-import com.brook.weather.entity.TabModel;
-import com.brook.weather.widgets.recyclerview.BaseViewHolder;
 
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,49 +12,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class HomeActivity extends BaseListActivity<TabModel> {
+import com.brook.weather.entity.TabModel;
+import com.brook.weather.widgets.recyclerview.BaseViewHolder;
+
+public class ObservationActivity extends BaseListActivity<TabModel> {
 
 	@Override
 	protected void setUpContentView() {
-		setContentView(R.layout.activity_main, 0);
+		setContentView(R.layout.activity_observation, R.string.tabmoel_zhgc,
+				MODE_BACK, 0);
 	}
-
-	// @Override
-	// protected void onCreate(Bundle savedInstanceState) {
-	// super.onCreate(savedInstanceState);
-	// setContentView(R.layout.activity_main);
-
-	// findViewById(R.id.layout).setOnClickListener(new OnClickListener() {
-	//
-	// @Override
-	// public void onClick(View v) {
-	//
-	// RequestEnvelope t = new RequestEnvelope();
-	// RequestBody b = new RequestBody();
-	// b.setTqyj(new Request("10", "0"));
-	// t.setBody(b);
-	//
-	// WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
-	// .observeOn(AndroidSchedulers.mainThread())
-	// .subscribe(new Action1<Response<ResponseEnvelope>>() {
-	//
-	// @Override
-	// public void call(Response<ResponseEnvelope> reponse) {
-	// ArrayList<Return> list = reponse.body().responseBody.model;
-	// Log.e(TAG, list.toString());
-	// }
-	// }, new Action1<Throwable>() {
-	//
-	// @Override
-	// public void call(Throwable throwable) {
-	//
-	// Log.e(TAG, throwable.getMessage().toString());
-	// }
-	// });
-	// }
-	// });
-
-	// }
 
 	@Override
 	protected void setUpView() {
@@ -67,18 +32,18 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 	protected void setUpData() {
 		super.setUpData();
 		mDataList = new ArrayList<>();
-		mDataList.add(new TabModel(R.drawable.tqyb, R.string.tabmoel_tqyb,
-				WeatherForecastActivity.class));
 		mDataList
-				.add(new TabModel(R.drawable.dlyb, R.string.tabmoel_dlyb, null));
-		mDataList
-				.add(new TabModel(R.drawable.dqyb, R.string.tabmoel_dqyb, null));
-		mDataList.add(new TabModel(R.drawable.tqyj, R.string.tabmoel_tqyj,
-				WeatherWarnningActivity.class));
-		mDataList.add(new TabModel(R.drawable.zhgc, R.string.tabmoel_zhgc,
-				ObservationActivity.class));
-		mDataList.add(new TabModel(R.drawable.jcfw, R.string.tabmoel_jcfw,
-				DecisionServiceActivity.class));
+				.add(new TabModel(R.drawable.yl, R.string.observation_yl, null));
+		mDataList.add(new TabModel(R.drawable.ldpt, R.string.observation_ldpt,
+				null));
+		mDataList.add(new TabModel(R.drawable.wxyt, R.string.observation_wxyt,
+				null));
+		mDataList.add(new TabModel(R.drawable.trsf, R.string.observation_trsf,
+				null));
+		mDataList.add(new TabModel(R.drawable.zgqw, R.string.observation_zgqw,
+				null));
+		mDataList.add(new TabModel(R.drawable.zdqw, R.string.observation_zdqw,
+				null));
 		adapter.notifyDataSetChanged();
 	}
 
@@ -126,10 +91,11 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 		public void onItemClick(View view, int position) {
 			TabModel tabModel = mDataList.get(position);
 			if (null != tabModel && null != tabModel.activityClass) {
-				Intent intent = new Intent(HomeActivity.this,
+				Intent intent = new Intent(ObservationActivity.this,
 						tabModel.activityClass);
 				startActivity(intent);
 			}
 		}
 	}
+
 }
