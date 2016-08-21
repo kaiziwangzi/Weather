@@ -35,7 +35,7 @@ public class DecisionServiceActivity extends BaseActivity {
 	@Override
 	protected void setUpData() {
 		createTab();
-		viewPager.setOffscreenPageLimit(1);
+		viewPager.setOffscreenPageLimit(2);
 		adapter = new HomePageAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(adapter);
 
@@ -52,9 +52,9 @@ public class DecisionServiceActivity extends BaseActivity {
 			tabs.add(new TabFragment(R.string.decisionservice_zsbg,
 					ZsbgFragment.class));
 			tabs.add(new TabFragment(R.string.decisionservice_zybg,
-					ZsbgFragment.class));
+					ZybgFragment.class));
 			tabs.add(new TabFragment(R.string.decisionservice_zyxx,
-					ZsbgFragment.class));
+					ZyxxFragment.class));
 		}
 	}
 

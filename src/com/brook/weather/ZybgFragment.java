@@ -24,7 +24,7 @@ import com.brook.weather.webservice.response.Return;
 import com.brook.weather.widgets.recyclerview.BaseViewHolder;
 import com.brook.weather.widgets.recyclerview.WeatherRecyclerView;
 
-public class ZsbgFragment extends BaseListFragment<Return> {
+public class ZybgFragment extends BaseListFragment<Return> {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

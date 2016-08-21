@@ -24,7 +24,7 @@ import com.brook.weather.webservice.response.Return;
 import com.brook.weather.widgets.recyclerview.BaseViewHolder;
 import com.brook.weather.widgets.recyclerview.WeatherRecyclerView;
 
-public class ZsbgFragment extends BaseListFragment<Return> {
+public class ZyxxFragment extends BaseListFragment<Return> {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +52,7 @@ public class ZsbgFragment extends BaseListFragment<Return> {
 	public void onRefresh(int mode) {
 		RequestEnvelope t = new RequestEnvelope();
 		RequestBody b = new RequestBody();
-		b.setJcfw(new Request("qxztfw"));// 重要预报：qxztfw 重要信息：zytqyb
+		b.setJcfw(new Request("zytqyb"));// 重要预报：qxztfw 重要信息：zytqyb
 		t.setBody(b);
 		WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
