@@ -1,7 +1,5 @@
 package com.brook.weather;
 
-import java.util.ArrayList;
-
 import retrofit2.Response;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -12,7 +10,6 @@ import com.brook.weather.webservice.request.Request;
 import com.brook.weather.webservice.request.RequestBody;
 import com.brook.weather.webservice.request.RequestEnvelope;
 import com.brook.weather.webservice.response.ResponseEnvelope;
-import com.brook.weather.webservice.response.Return;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,19 +17,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 /**
- * 雨量
- * @ClassName: YlFragment 
+ * 短期预报
+ * @ClassName: DqybFragment 
  * @Description: TODO
  * @author yuanxw
  * @date 2016-8-21 下午12:59:44 
  * @copyright XLSTUDIO
  */
-public class YlFragment extends BaseFragment{
+public class DqybFragment extends BaseFragment{
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.fragment_yl, container, false);
+		return inflater.inflate(R.layout.fragment_dqyb, container, false);
 	}
 
 	@Override
@@ -45,7 +42,7 @@ public class YlFragment extends BaseFragment{
 	public void setUpData() {
 		RequestEnvelope t = new RequestEnvelope();
 		RequestBody b = new RequestBody();
-		b.setDjz(new Request("rain_hour_1_picture_map", "2016082108", "1"));
+		b.setTqybc(new Request("rain_tqyb_short_024", "20160821"));
 		t.setBody(b);
 		WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
 		.observeOn(AndroidSchedulers.mainThread())
@@ -53,13 +50,13 @@ public class YlFragment extends BaseFragment{
 
 			@Override
 			public void call(Response<ResponseEnvelope> response) {
-				ArrayList<Return> data = response.body().responseBody.model3;
-				Toast.makeText(getActivity(),data.get(0).inserttime,2000).show();
+				Toast.makeText(getActivity(),"success", 2000).show();
 			}
-			}, new Action1<Throwable>() {
+		}, new Action1<Throwable>() {
+
 			@Override
 			public void call(Throwable arg0) {
-				Toast.makeText(getActivity(),arg0.getMessage().toString(), 2000).show();
+				
 			}
 		});
 	}

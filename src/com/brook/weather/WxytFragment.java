@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.brook.weather.api.WeatherRequest;
 import com.brook.weather.webservice.request.Request;
@@ -56,6 +57,10 @@ public class WxytFragment extends BaseListFragment<Return>{
 
 					@Override
 					public void call(Response<ResponseEnvelope> response) {
+						if (response.isSuccessful() && null != response.body()) {
+							mDataList = response.body().responseBody.model1;
+							Toast.makeText(getActivity(),mDataList.size()+"",2000).show();
+						}
 					}
 				}, new Action1<Throwable>() {
 

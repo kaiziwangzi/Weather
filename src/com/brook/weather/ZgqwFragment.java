@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  * @Description: TODO
  * @author yuanxw
  * @date 2016-8-21 下午1:00:14 
- * @copyright DPX
+ * @copyright XLSTUDIO
  */
 public class ZgqwFragment extends BaseFragment{
 	

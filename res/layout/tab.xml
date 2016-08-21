@@ -7,7 +7,7 @@
     android:background="#ffffff"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="5dp" >
+    android:padding="10dp" >
 
     <ImageView
         android:id="@+id/mTabIamge"

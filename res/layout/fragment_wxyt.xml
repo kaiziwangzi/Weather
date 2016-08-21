@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <include layout="@layout/head_common" />
-
+      <com.brook.weather.widgets.recyclerview.WeatherRecyclerView
+        android:id="@id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
