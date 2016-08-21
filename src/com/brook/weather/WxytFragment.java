@@ -1,10 +1,19 @@
 package com.brook.weather;
 
+import retrofit2.Response;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.brook.weather.api.WeatherRequest;
+import com.brook.weather.webservice.request.Request;
+import com.brook.weather.webservice.request.RequestBody;
+import com.brook.weather.webservice.request.RequestEnvelope;
+import com.brook.weather.webservice.response.ResponseEnvelope;
 import com.brook.weather.webservice.response.Return;
 import com.brook.weather.widgets.recyclerview.BaseViewHolder;
 /**
@@ -37,8 +46,23 @@ public class WxytFragment extends BaseListFragment<Return>{
 
 	@Override
 	public void onRefresh() {
-		// TODO Auto-generated method stub
-		
+		RequestEnvelope t = new RequestEnvelope();
+		RequestBody b = new RequestBody();
+		b.setJcfw(new Request("fy2e"));//fy2e卫星云图
+		t.setBody(b);
+		WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Action1<Response<ResponseEnvelope>>() {
+
+					@Override
+					public void call(Response<ResponseEnvelope> response) {
+					}
+				}, new Action1<Throwable>() {
+
+					@Override
+					public void call(Throwable arg0) {
+					}
+				});
 	}
 
 	@Override

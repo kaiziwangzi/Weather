@@ -12,6 +12,17 @@ public class RequestBody {
 	
 	@Element(name="select_data_type_c_pamter", required = false)
 	private Request jcfw = null;
+	
+	@Element(name="select_data_type_c_dijizhang", required = false)
+	private Request djz = null;
+	
+	public Request getDjz() {
+		return djz;
+	}
+
+	public void setDjz(Request djz) {
+		this.djz = djz;
+	}
 
 	public Request getTqyj() {
 		return tqyj;
