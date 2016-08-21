@@ -1,5 +1,7 @@
 package com.brook.weather;
 
+import java.util.ArrayList;
+
 import retrofit2.Response;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -10,6 +12,7 @@ import com.brook.weather.webservice.request.Request;
 import com.brook.weather.webservice.request.RequestBody;
 import com.brook.weather.webservice.request.RequestEnvelope;
 import com.brook.weather.webservice.response.ResponseEnvelope;
+import com.brook.weather.webservice.response.Return;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,7 +45,7 @@ public class DqybFragment extends BaseFragment{
 	public void setUpData() {
 		RequestEnvelope t = new RequestEnvelope();
 		RequestBody b = new RequestBody();
-		b.setTqybc(new Request("rain_tqyb_short_024", "20160821"));
+		b.setTqybc(new Request("rain_tqyb_short_024", "20160821"));//24 48 72，第二个参数时间戳，返回是一张图片，直接展示即可
 		t.setBody(b);
 		WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
 		.observeOn(AndroidSchedulers.mainThread())
@@ -50,7 +53,7 @@ public class DqybFragment extends BaseFragment{
 
 			@Override
 			public void call(Response<ResponseEnvelope> response) {
-				Toast.makeText(getActivity(),"success", 2000).show();
+				ArrayList<Return> data = response.body().responseBody.model2;
 			}
 		}, new Action1<Throwable>() {
 
