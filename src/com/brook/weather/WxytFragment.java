@@ -131,7 +131,7 @@ public class WxytFragment extends BaseListFragment<Return>{
 			if (null != mrReturn) {
 				 Intent intent = new Intent(getActivity(),
 				 PicViewerActivity.class);
-				 intent.putExtra(Constants.ACTION_WARNNING_DETAIL, mrReturn);
+				 intent.putExtra("file", mrReturn.path);
 				 startActivity(intent);
 			}
 		}

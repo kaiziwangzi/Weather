@@ -1,4 +1,8 @@
 package com.brook.weather;
+
+import com.brook.weather.widgets.ZoomImageView;
+import com.bumptech.glide.Glide;
+
 /**
  * 图片
  * @ClassName: AnimatorActivity 
@@ -8,6 +12,7 @@ package com.brook.weather;
  * @copyright XLSTUDIO
  */
 public class PicViewerActivity extends BaseActivity{
+	private ZoomImageView iv;
 
 	@Override
 	protected void setUpContentView() {
@@ -17,13 +22,12 @@ public class PicViewerActivity extends BaseActivity{
 
 	@Override
 	protected void setUpData() {
-		
+		Glide.with(this).load(getIntent().getStringExtra("file")).asBitmap().into(iv);
 	}
 
 	@Override
 	protected void setUpView() {
-		// TODO Auto-generated method stub
-		
+		iv = (ZoomImageView) findViewById(R.id.iv);
 	}
 
 }

@@ -42,7 +42,6 @@ public class DecisionServiceActivity extends BaseActivity {
 		tabLayout.setupWithViewPager(viewPager);
 		tabLayout.setTabMode(TabLayout.MODE_FIXED);
 		tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
 		buildTabs();
 	}
 

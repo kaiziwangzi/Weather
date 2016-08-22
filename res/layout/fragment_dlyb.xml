@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
 
+     <android.support.design.widget.TabLayout
+        android:id="@+id/mTablayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/color_252635"
+        app:tabIndicatorColor="@color/color_56abe4"
+        app:tabSelectedTextColor="@color/color_56abe4"
+        app:tabTextColor="@color/color_white"
+        android:layout_alignParentBottom="true"
+        app:tabIndicatorHeight="2.5dp" />
+     
+      <TextView 
+         android:id="@+id/tv_date"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerHorizontal="true"
+         android:textSize="16sp"
+         android:textColor="@color/color_9c9c9c"
+         android:layout_marginTop="10dp"/>
+      
+       <android.support.v4.view.ViewPager
+         android:id="@+id/iv"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_below="@id/tv_date"
+         android:layout_above="@id/mTablayout"/>
 
-</LinearLayout>
+</RelativeLayout>

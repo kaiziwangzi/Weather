@@ -57,5 +57,21 @@ public class StringUtil {
 								String now = biaozhi+sdf.format(dt1);
 		return now;
 	}
+	
+	public static String getYMD(){
+		 Date d = new Date();  
+	     System.out.println(d);  
+	     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");  
+	     String dateNowStr = sdf.format(d);  
+	     return dateNowStr;
+	}
+	
+	public static String getY_M_D(){
+		 Date d = new Date();  
+	     System.out.println(d);  
+	     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+	     String dateNowStr = sdf.format(d);  
+	     return dateNowStr;
+	}
 }
 
