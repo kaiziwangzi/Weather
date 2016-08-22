@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <include layout="@layout/head_common" />
+    <include layout="@layout/head_common" 
+        android:visibility="gone"/>
 
      <android.support.design.widget.TabLayout
         android:id="@+id/mTablayout"
