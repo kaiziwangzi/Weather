@@ -73,7 +73,6 @@ public class DlybFragment extends BaseFragment{
 			@Override
 			public void call(Response<ResponseEnvelope> response) {
 				ArrayList<Return> data = response.body().responseBody.model2;
-				Toast.makeText(getActivity(),data.get(0).filename, 2000).show();
 			}
 		}, new Action1<Throwable>() {
 

@@ -24,4 +24,9 @@
     <style name="AppCompatTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+     <style name="MyTabLayoutTextAppearanceInverse" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">  
+        <item name="android:textSize">10sp</item>  
+        <item name="android:textColor">@android:color/white</item>  
+    </style> 
 </resources>

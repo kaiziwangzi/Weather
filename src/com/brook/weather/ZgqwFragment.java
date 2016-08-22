@@ -1,6 +1,7 @@
 package com.brook.weather;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import android.view.ViewGroup;
  */
 public class ZgqwFragment extends BaseFragment{
 	
+	private TabLayout tabLayout;
+	private String[] hour={"1","3","6","12","24"};
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -22,12 +26,24 @@ public class ZgqwFragment extends BaseFragment{
 
 	@Override
 	public void setUpView(View view) {
-		// TODO Auto-generated method stub
-		
+		tabLayout = (TabLayout)view.findViewById(R.id.mTablayout);
 	}
 
 	@Override
 	public void setUpData() {
+		tabLayout.setTabMode(TabLayout.MODE_FIXED);
+		tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+		buildTabs();
+		getData();
+	}
+
+	private void buildTabs() {
+		for(int i=0;i<hour.length;i++){
+			tabLayout.addTab(tabLayout.newTab().setText(hour[i]+"h")); 
+		}
+	}
+
+	private void getData() {
 		// TODO Auto-generated method stub
 		
 	}
