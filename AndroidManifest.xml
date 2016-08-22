@@ -41,6 +41,9 @@
         <activity
             android:name=".DecisionServiceActivity"
             android:screenOrientation="portrait" />
+         <activity
+            android:name=".AnimatorActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
