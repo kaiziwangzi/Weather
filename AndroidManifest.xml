@@ -44,6 +44,9 @@
          <activity
             android:name=".AnimatorActivity"
             android:screenOrientation="portrait" />
+         <activity
+            android:name=".PicViewerActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

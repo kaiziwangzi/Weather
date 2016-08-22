@@ -22,5 +22,8 @@
     <string name="observation_trsf">土壤水分</string>
     <string name="observation_zgqw">最高气温</string>
     <string name="observation_zdqw">最低气温</string>
+    <string name="animator">动画</string>
+    <string name="picviewer">图片</string>
+    
 
 </resources>

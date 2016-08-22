@@ -1,5 +1,10 @@
 package com.brook.weather.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class StringUtil {
 
 	// 获取请求body
@@ -15,17 +20,42 @@ public class StringUtil {
 				+ name + "</n0:" + method + "></v:Body></v:Envelope>";
 		return body;
 	}
+	
+	public static String getWxytTitle(String filename){
+		filename=filename.substring(0, 21).replaceAll("_", "");
+		String biaozhi,year,month,date,hour,minute;
+		biaozhi=filename.substring(0, 4);
+		year=filename.substring(4, 8);
+		month=filename.substring(8, 10);
+		date=filename.substring(10, 12);
+		hour=filename.substring(12, 14);
+		minute=filename.substring(14, 16);
+								String shijian_convert=year
+										+"-"
+										+month
+										+"-"
+										+date
+										+" "
+										+hour
+										+":"
+										+minute;
+								
+								SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+								
+								Date dt = null;
+								try {
+									dt = sdf.parse(shijian_convert);
+								} catch (ParseException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								Calendar rightNow = Calendar.getInstance();
+								rightNow.setTime(dt);
+								rightNow.add(Calendar.HOUR_OF_DAY,+8);//日期减1年
+								
+								Date dt1=rightNow.getTime();
+								String now = biaozhi+sdf.format(dt1);
+		return now;
+	}
 }
 
-// <v:Envelope xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
-// xmlns:d="http://www.w3.org/2001/XMLSchema"
-// xmlns:c="http://schemas.xmlsoap.org/soap/encoding/"
-// xmlns:v="http://schemas.xmlsoap.org/soap/envelope/">
-// <v:Header />
-// <v:Body>
-// <n0:select_data_type_c_tqyj id="o0" c:root="1" xmlns:n0="http://find/">
-// <name1 i:type="d:string">10</name1>
-// <name2 i:type="d:string">0</name2>
-// </n0:select_data_type_c_tqyj>
-// </v:Body>
-// </v:Envelope>
