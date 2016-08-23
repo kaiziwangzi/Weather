@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">河南天气</string>
+    <string name="app_name">河南省气象信息平台</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="tabmoel_tqyb">天气预报</string>
@@ -22,8 +22,9 @@
     <string name="observation_trsf">土壤水分</string>
     <string name="observation_zgqw">最高气温</string>
     <string name="observation_zdqw">最低气温</string>
-    <string name="animator">动画</string>
+    <string name="animator">动态显示</string>
     <string name="picviewer">图片</string>
+    <string name="pdfviewer">文件查看</string>
     
 
 </resources>

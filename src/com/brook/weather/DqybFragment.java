@@ -95,7 +95,7 @@ public class DqybFragment extends BaseFragment{
 	private void getData() {
 		RequestEnvelope t = new RequestEnvelope();
 		RequestBody b = new RequestBody();
-		b.setTqybc(new Request(Constants.ACTION_DQYB+hour[tabIndex], StringUtil.getYMD()));//24 48 72，第二个参数时间戳，返回是一张图片，直接展示即可
+		b.setTqyb(new Request("1","0",Constants.ACTION_DQYB+hour[tabIndex]));//24 48 72，第二个参数时间戳，返回是一张图片，直接展示即可
 		t.setBody(b);
 		WeatherRequest.buildXml().sayHi(t).subscribeOn(Schedulers.io())
 		.observeOn(AndroidSchedulers.mainThread())
@@ -103,7 +103,7 @@ public class DqybFragment extends BaseFragment{
 
 			@Override
 			public void call(Response<ResponseEnvelope> response) {
-				ArrayList<Return> data = response.body().responseBody.model2;
+				ArrayList<Return> data = response.body().responseBody.model4;
 				Glide.with(getActivity()).load(data.get(0).path).asBitmap().into(iv);
 			}
 		}, new Action1<Throwable>() {

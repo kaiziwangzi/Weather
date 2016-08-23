@@ -73,5 +73,27 @@ public class StringUtil {
 	     String dateNowStr = sdf.format(d);  
 	     return dateNowStr;
 	}
+	
+	public static boolean isEmpty(String str) {
+		if (null == str || "".equals(str.trim()) || "null".equals(str.trim())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static int getDisasterIcon(String yj){
+		int start = 0;
+		int end = 0;
+		for(int i=0;i<yj.length();i++){
+			if(yj.charAt(i)=='布'){
+				start = i+1;
+			}
+			if(yj.charAt(i)=='['){
+				end = i;
+			}
+		}
+		return EmotionUtils.getImgByName(yj.substring(start,end));
+	}
 }
 

@@ -67,9 +67,9 @@ public class ObservationActivity extends BaseActivity {
 			tabs.add(new TabFragment(R.string.observation_trsf,
 					TrsfFragment.class));
 			tabs.add(new TabFragment(R.string.observation_zgqw,
-					ZgqwFragment.class));
+					QwFragment.class));
 			tabs.add(new TabFragment(R.string.observation_zdqw,
-					ZdqwFragment.class));
+					QwFragment.class));
 		}
 	}
 

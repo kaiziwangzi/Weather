@@ -12,11 +12,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.brook.weather.api.WeatherRequest;
 import com.brook.weather.constants.Constants;
 import com.brook.weather.utils.DateUtil;
+import com.brook.weather.utils.StringUtil;
 import com.brook.weather.webservice.request.Request;
 import com.brook.weather.webservice.request.RequestBody;
 import com.brook.weather.webservice.request.RequestEnvelope;
@@ -96,6 +98,7 @@ public class WeatherWarnningActivity extends BaseListActivity<Return> {
 		private TextView mDescription1;
 		private TextView mTitles;
 		private TextView mPubdate;
+		private ImageView mStatusImage;
 
 		public ViewHolder(View itemView) {
 			super(itemView);
@@ -103,6 +106,7 @@ public class WeatherWarnningActivity extends BaseListActivity<Return> {
 					.findViewById(R.id.mDescription1);
 			mTitles = (TextView) itemView.findViewById(R.id.mTitles);
 			mPubdate = (TextView) itemView.findViewById(R.id.mPubdate);
+			mStatusImage = (ImageView) itemView.findViewById(R.id.mStatusImage);
 		}
 
 		@Override
@@ -110,6 +114,10 @@ public class WeatherWarnningActivity extends BaseListActivity<Return> {
 			mTitles.setText(mReturn.titles);
 			mDescription1.setText(mReturn.description1);
 			mPubdate.setText(DateUtil.format(mReturn.pubdate));
+			int icon = StringUtil.getDisasterIcon(mReturn.titles);
+			if(icon!=-1){
+				mStatusImage.setImageDrawable(getResources().getDrawable(icon));
+			}
 		}
 
 		@Override

@@ -5,17 +5,21 @@ import com.brook.weather.entity.TabModel;
 import com.brook.weather.widgets.recyclerview.BaseViewHolder;
 
 import android.content.Intent;
+import android.os.Process;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends BaseListActivity<TabModel> {
 
+	private long exitTime;//第一次按退出的时间
 	@Override
 	protected void setUpContentView() {
 		setContentView(R.layout.activity_main, 0);
@@ -131,5 +135,21 @@ public class HomeActivity extends BaseListActivity<TabModel> {
 				startActivity(intent);
 			}
 		}
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode==KeyEvent.KEYCODE_BACK && event.getAction()==KeyEvent.ACTION_DOWN){
+			if((System.currentTimeMillis()-exitTime) > 2000){  
+				Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();                                
+		        exitTime = System.currentTimeMillis();   
+	        } else {
+	        	
+                Process.killProcess(Process.myPid());
+	            finish();
+	        }
+			return true;   
+		}
+		return true;
 	}
 }

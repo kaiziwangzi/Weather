@@ -44,6 +44,9 @@ public class YlFragment extends BaseFragment implements OnClickListener{
 	private String[] showStr={"色斑图","表格","动画"};
 	private ImageView addIv;
 	private TabLayout showTl;
+	private int showIndex = 1;
+	private int typeIndex = 0;
+	private int tabIndex = 0;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -60,9 +63,8 @@ public class YlFragment extends BaseFragment implements OnClickListener{
 	}
 
 	private void buildTabs() {
-		for(int i=0;i<hour.length;i++){
-			tabLayout.addTab(tabLayout.newTab().setText(hour[i]+"h")); 
-		}
+		
+		buildTimeTab();
 		
 		for(int i=0;i<showStr.length;i++){
 			showTl.addTab(showTl.newTab().setText(showStr[i])); 
@@ -72,6 +74,40 @@ public class YlFragment extends BaseFragment implements OnClickListener{
 		
 		typeTl.addTab(typeTl.newTab().setText("逐旬摘要"));
 		
+		
+		typeTl.setOnTabSelectedListener(new OnTabSelectedListener() {
+			
+			@Override
+			public void onTabUnselected(Tab arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onTabSelected(Tab arg0) {
+				typeIndex = arg0.getPosition();
+				buildTimeTab();
+			}
+			
+			@Override
+			public void onTabReselected(Tab arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+
+	private void buildTimeTab() {
+		tabIndex = 0;
+		tabLayout.removeAllTabs();
+		if(typeIndex==0){
+			hour = new String[]{"1","3","6","12","20","24","36","48","72"};
+		}else{
+			hour = new String[]{"10","20","30","60","90"};
+		}
+		for(int i=0;i<hour.length;i++){
+			tabLayout.addTab(tabLayout.newTab().setText(hour[i]+(typeIndex==0?"h":"天"))); 
+		}
 		
 		tabLayout.setOnTabSelectedListener(new OnTabSelectedListener() {
 			

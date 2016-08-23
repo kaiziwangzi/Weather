@@ -7,6 +7,7 @@
     <include layout="@layout/head_common" />
 
     <ImageView
+        android:id="@+id/mStatusImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"

@@ -80,7 +80,6 @@ public class TrsfFragment extends BaseFragment implements OnClickListener{
 			@Override
 			public void call(Response<ResponseEnvelope> response) {
 				ArrayList<Return> data = response.body().responseBody.model3;
-				Toast.makeText(getActivity(),data.get(0).inserttime,2000).show();
 			}
 			}, new Action1<Throwable>() {
 

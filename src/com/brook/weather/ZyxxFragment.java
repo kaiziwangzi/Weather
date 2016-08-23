@@ -6,6 +6,7 @@ import retrofit2.Response;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -122,10 +123,10 @@ public class ZyxxFragment extends BaseListFragment<Return> {
 		public void onItemClick(View view, int position) {
 			Return mrReturn = mDataList.get(position);
 			if (null != mrReturn) {
-				// Intent intent = new Intent(WeatherWarnningActivity.this,
-				// WeatherWarnningDetailActivity.class);
-				// intent.putExtra(Constants.ACTION_WARNNING_DETAIL, mrReturn);
-				// startActivity(intent);
+				 Intent intent = new Intent(getActivity(),
+				 PdfViewActivity.class);
+				 intent.putExtra("path", mrReturn.path);
+				 startActivity(intent);
 			}
 		}
 	}

@@ -21,5 +21,8 @@ public class ReturnBody {
 	@ElementList(name = "select_data_type_c_dijizhangResponse", required = false)
 	public ArrayList<Return> model3;
 	
+	@ElementList(name = "select_data_type_c_tqybResponse", required = false)
+	public ArrayList<Return> model4;
+	
 	
 }

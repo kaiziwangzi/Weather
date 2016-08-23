@@ -16,6 +16,18 @@ public class RequestBody {
 	@Element(name="select_data_type_c_dijizhang", required = false)
 	private Request djz = null;
 	
+	@Element(name="select_data_type_c_tqyb", required = false)
+	private Request tqyb = null;
+	
+	
+	public Request getTqyb() {
+		return tqyb;
+	}
+
+	public void setTqyb(Request tqyb) {
+		this.tqyb = tqyb;
+	}
+
 	public Request getDjz() {
 		return djz;
 	}

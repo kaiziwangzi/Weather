@@ -1,5 +1,6 @@
 package com.brook.weather;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import retrofit2.Response;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +74,7 @@ public class WxytFragment extends BaseListFragment<Return>{
 					public void call(Response<ResponseEnvelope> response) {
 						if (response.isSuccessful() && null != response.body()) {
 							mDataList = response.body().responseBody.model1;
+							mDataList.add(0,new Return());
 						}
 						adapter.notifyDataSetChanged();
 						mSwipeRefreshLayout.setRefreshing(false);
@@ -85,11 +88,14 @@ public class WxytFragment extends BaseListFragment<Return>{
 				});
 	}
 
+
 	@Override
 	public boolean needLoadMore() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	
 	
 	@Override
 	protected BaseViewHolder getDataHolder(ViewGroup parent, int viewType) {
@@ -109,6 +115,7 @@ public class WxytFragment extends BaseListFragment<Return>{
 		private TextView mDescription1;
 		private TextView mTitles;
 		private TextView mPubdate;
+		private ImageView mStatusImage;
 
 		public ViewHolder(View itemView) {
 			super(itemView);
@@ -116,23 +123,40 @@ public class WxytFragment extends BaseListFragment<Return>{
 					.findViewById(R.id.mDescription1);
 			mTitles = (TextView) itemView.findViewById(R.id.mTitles);
 			mPubdate = (TextView) itemView.findViewById(R.id.mPubdate);
+			mStatusImage = (ImageView) itemView.findViewById(R.id.mStatusImage);
 		}
 
 		@Override
 		public void onBind(Return mReturn) {
-			mTitles.setText(StringUtil.getWxytTitle(mReturn.filename));
-			mDescription1.setText(mReturn.inserttime);
-			mPubdate.setText(DateUtil.format(mReturn.path));
+			if(StringUtil.isEmpty(mReturn.inserttime)){
+				mStatusImage.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.play));
+				mTitles.setText("卫星云图");
+				mDescription1.setText("动态显示");
+			}else{
+				mTitles.setText(StringUtil.getWxytTitle(mReturn.filename));
+				mDescription1.setText(mReturn.inserttime);
+			}
 		}
 
 		@Override
 		public void onItemClick(View view, int position) {
 			Return mrReturn = mDataList.get(position);
 			if (null != mrReturn) {
-				 Intent intent = new Intent(getActivity(),
-				 PicViewerActivity.class);
-				 intent.putExtra("file", mrReturn.path);
-				 startActivity(intent);
+				if(!StringUtil.isEmpty(mrReturn.filename)){
+					 Intent intent = new Intent(getActivity(),
+							 PicViewerActivity.class);
+							 intent.putExtra("file", mrReturn.path);
+							 startActivity(intent);
+				}else{
+					 Intent intent = new Intent(getActivity(),
+							 AnimatorActivity.class);
+					 ArrayList<String> temp = new ArrayList<String>();
+			 		 for(int i=1;i<mDataList.size();i++){
+			 			 temp.add(mDataList.get(i).path);
+			 		 }
+			 		 intent.putExtra("imgs",(Serializable)temp);
+					 startActivity(intent);
+				}
 			}
 		}
 	}
